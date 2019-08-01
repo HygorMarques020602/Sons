@@ -1,0 +1,116 @@
+/* Editar Todo o Body */
+body{
+	text-align: center;
+	font-family: arial;
+	background: #DCF763;
+}
+
+/* Começo Código Tela Inicial */
+.inicio p{
+	margin-left: 12vw;
+	margin-top: 25vh;
+	font-weight: bold;
+	font-size: 2em;
+	color: #435058;
+}
+
+.inicio button{
+	margin-left: 12vw;
+	margin-top: 25vh;
+	border-style: none;
+	font-size: 3em;
+	padding: 5vh 10vw;
+	border-radius: 10px;
+	font-weight: bold;
+	background: #435058;
+	color: #BFB7B6;
+}
+
+/* Começo Tela Jogo */
+.interfaceJogo img{
+	width: 20vw;
+	height: 20vw;
+}
+
+.interfaceJogo ul{
+	display: flex;
+	flex-wrap: wrap;
+	text-align:center;
+	justify-content: center;
+}
+
+.interfaceJogo li{
+	width: 30vw;
+	box-sizing: border-box;
+	border-radius: 100px;
+	height: 15vh;
+	vertical-align: center;
+	color: black;
+	font-size: 2em;
+	margin-bottom: 2.5vh;
+}
+
+.interfaceJogo .songs{
+	background: #435058;
+}
+
+.interfaceJogo h1 .dois {
+	height: 25vh;
+	vertical-align: center;
+	font-size: 4em;
+	color: #313034;
+	line-height: 15vh;
+}
+
+.interfaceJogo h1 .um{
+	height: 25vh;
+	vertical-align: center;
+	font-size: 4em;
+	color: #313034;
+	line-height: 15vh;
+}
+
+.interfaceJogo h2{
+	margin: 2vh 0;
+	vertical-align: center;
+	color: #ff6347;
+	font-size: 2em;
+}
+
+/* Tela Perdeu */
+.perdeu .perdi{
+	text-align: center;
+	color: red;
+	font-size: 10vw;
+	padding: 70vw 10vw 10vw 14vw;
+}
+.perdeu{
+	text-align: center;
+	color: black;
+	font-size: 5vw;
+	padding: 1vw 10vw 10vw 14vw;
+}
+
+/* Tela Ganhou */
+.ganhou .p{
+	text-align: center;
+	color: red;
+	font-size: 10vw;
+	padding: 70vw 10vw 10vw 14vw;
+}
+.ganhou{
+	text-align: center;
+	color: black;
+	font-size: 5vw;
+	padding: 1vw 10vw 10vw 14vw;
+}
+
+/*== Ajuste Tela ==*/
+section{
+	position: absolute;
+	top: 0;
+}
+body{
+	position: relative;
+
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>title</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <section class="inicio">
+  	<p>QUAL É O SOM!?!?!</p>
+  	<button>JOGAR</button>
+  </section>
+  <section class="interfaceJogo" style="display: none;">
+
+  	<h1>
+    <span class="um">00:</span><span class="dois">30</span>
+    </h1>
+     <h2>Que som é esse?</h2>
+      <img src="img/playbutton.png" >
+  	<ul>
+
+  		<li class="songs"><img src="img/accordion.png" data-som = "audio/accordion.wav"></li>
+  		<li class="songs"><img src="img/banjo.png" data-som "audio/banjo.wav"></li>
+  		<li class="songs"><img src="img/piano.png" data-som = "audio/banjo.wav"></li>
+
+  		<li class="songs"><img src="img/clarinet.png" data-som = "audio/clarinet.wav"></li>
+  		<li class="songs"><img src="img/trumpet.png" data-som = "audio/trumpet.wav"></li>
+  		<li class="songs"><img src="img/cymbal.png" data-som = "audio/cymbal.wav"></li>
+
+  		<li class="songs"><img src="img/guitar.png" data-som = "audio/guitar.wav"></li>
+  		<li class="songs"><img src="img/maracas.png" data-som = "audio/maracas.mp3"></li>
+  		<li class="songs"><img src="img/singer.png" data-som = "audio/singer.wav"></li>
+
+
+  	</ul>
+  </section>
+
+  <section class=perdeu style="display: none;">
+    <P CLASS="perdi">GAME OVER</P>
+    <p>Tente novamente</p>
+  </section>
+  <section class=ganhou style="display: none;">
+    <p CLASS="p">Parabéns</p>
+    <p>Jogue novamente</p>
+  </section>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>
+
+$("section.inicio button").on("click", function(){
+  /*esconder*/
+  $("section.inicio").fadeOut();
+  /*aparecer*/
+  $("section.interfaceJogo").fadeIn();
+
+
+  contagem = setInterval(function(){
+    var tempo = $("h1 span.dois").text();
+    tempo = parseInt(tempo) -1;
+    $("h1 span.dois").text(tempo);
+    if(tempo == 0){
+      clearInterval(contagem);
+      $("section.interfaceJogo").fadeOut();
+      $("section.perdeu").fadeIn();
+    }
+  }, 1000);
+  return false;
+
+});
+
+// Array Sons Aleatórios
+var sons = ["audio/accordion.wav", "audio/banjo.wav", "audio/clarinet.wav", "audio/cymbal.wav", "audio/guitar.wav", "audio/maracas.mp3", "audio/piano.wav", "audio/singer.wav", "audio/trumpet.wav"];
+var num1 = Math.floor(Math.random() * 9);
+
+// Botão inicar musica
+  $("section.interfaceJogo img").on("click", function(){
+    var som = $(this).data("som");
+    // var music = new Audio('audio/banjo.wav');
+    var audioAtual = new Audio (sons[num1]);
+    audioAtual.play();
+  })
+
+  $("section.interfaceJogo ul .songs").on("click", function(){
+   var audioEscolha = $(this).data("som");
+   if(audioEscolha == audioAtual){
+     console.log("Acertou!")
+   }
+});
+
+
+</script>
+</body>
+</html>
