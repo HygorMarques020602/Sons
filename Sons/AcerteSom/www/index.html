@@ -75,19 +75,17 @@ $("section.inicio button").on("click", function(){
 // Array Sons Aleatórios
 var sons = ["audio/accordion.wav", "audio/banjo.wav", "audio/clarinet.wav", "audio/cymbal.wav", "audio/guitar.wav", "audio/maracas.mp3", "audio/piano.wav", "audio/singer.wav", "audio/trumpet.wav"];
 var num1 = Math.floor(Math.random() * 9);
+var audioAtual = new Audio (sons[num1]);
 
 // Botão inicar musica
   $("section.interfaceJogo img").on("click", function(){
-    var som = $(this).data("som");
-    // var music = new Audio('audio/banjo.wav');
-    var audioAtual = new Audio (sons[num1]);
     audioAtual.play();
   })
 
   $("section.interfaceJogo ul .songs").on("click", function(){
    var audioEscolha = $(this).data("som");
    if(audioEscolha == audioAtual){
-     console.log("Acertou!")
+     console.log("Acertou!");
    }
 });
 
