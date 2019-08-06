@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>title</title>
+  <title>Qual o Instrumento?</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
@@ -11,22 +11,27 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
+  <!-- Tela Inicial -->
   <section class="inicio">
   	<p>QUAL É O SOM!?!?!</p>
   	<button>JOGAR</button>
   </section>
+
+  <!-- Tela Principal 1 -->
   <section class="interfaceJogo" style="display: none;">
 
   	<h1>
     <span class="um">00:</span><span class="dois">30</span>
     </h1>
      <h2>Que som é esse?</h2>
-      <img src="img/playbutton.png" >
+     <h3>Nivel 1</h3>
+      <img class="comecar" src="img/playbutton.png" >
   	<ul>
 
   		<li class="songs"><img src="img/accordion.png" data-som = "audio/accordion.wav"></li>
-  		<li class="songs"><img src="img/banjo.png" data-som "audio/banjo.wav"></li>
-  		<li class="songs"><img src="img/piano.png" data-som = "audio/banjo.wav"></li>
+  		<li class="songs"><img src="img/banjo.png" data-som = "audio/banjo.wav"></li>
+  		<li class="songs"><img src="img/piano.png" data-som = "audio/piano.wav"></li>
 
   		<li class="songs"><img src="img/clarinet.png" data-som = "audio/clarinet.wav"></li>
   		<li class="songs"><img src="img/trumpet.png" data-som = "audio/trumpet.wav"></li>
@@ -36,20 +41,90 @@
   		<li class="songs"><img src="img/maracas.png" data-som = "audio/maracas.mp3"></li>
   		<li class="songs"><img src="img/singer.png" data-som = "audio/singer.wav"></li>
 
-
   	</ul>
   </section>
 
+  <!-- Tela Principal 2 -->
+  <section class="interfaceJogo2" style="display: none;">
+
+    <h1>
+    <span class="um">00:</span><span class="dois">30</span>
+    </h1>
+     <h2>Que som é esse?</h2>
+     <h3>Nivel 2</h3>
+      <img class="comecar" src="img/playbutton.png" >
+    <ul>
+
+      <li class="songs"><img src="img/accordion.png" data-som = "audio/accordion.wav"></li>
+      <li class="songs"><img src="img/banjo.png" data-som = "audio/banjo.wav"></li>
+      <li class="songs"><img src="img/piano.png" data-som = "audio/piano.wav"></li>
+
+      <li class="songs"><img src="img/clarinet.png" data-som = "audio/clarinet.wav"></li>
+      <li class="songs"><img src="img/trumpet.png" data-som = "audio/trumpet.wav"></li>
+      <li class="songs"><img src="img/cymbal.png" data-som = "audio/cymbal.wav"></li>
+
+      <li class="songs"><img src="img/guitar.png" data-som = "audio/guitar.wav"></li>
+      <li class="songs"><img src="img/maracas.png" data-som = "audio/maracas.mp3"></li>
+      <li class="songs"><img src="img/singer.png" data-som = "audio/singer.wav"></li>
+
+    </ul>
+  </section>
+
+  <!-- Tela Principal 3 -->
+  <section class="interfaceJogo3" style="display: none;">
+
+    <h1>
+    <span class="um">00:</span><span class="dois">30</span>
+    </h1>
+     <h2>Que som é esse?</h2>
+      <h3>Nivel 3</h3>
+      <img class="comecar" src="img/playbutton.png" >
+    <ul>
+
+      <li class="songs"><img src="img/accordion.png" data-som = "audio/accordion.wav"></li>
+      <li class="songs"><img src="img/banjo.png" data-som = "audio/banjo.wav"></li>
+      <li class="songs"><img src="img/piano.png" data-som = "audio/piano.wav"></li>
+
+      <li class="songs"><img src="img/clarinet.png" data-som = "audio/clarinet.wav"></li>
+      <li class="songs"><img src="img/trumpet.png" data-som = "audio/trumpet.wav"></li>
+      <li class="songs"><img src="img/cymbal.png" data-som = "audio/cymbal.wav"></li>
+
+      <li class="songs"><img src="img/guitar.png" data-som = "audio/guitar.wav"></li>
+      <li class="songs"><img src="img/maracas.png" data-som = "audio/maracas.mp3"></li>
+      <li class="songs"><img src="img/singer.png" data-som = "audio/singer.wav"></li>
+
+    </ul>
+  </section>
+
+  <!-- Tela Perdeu -->
   <section class=perdeu style="display: none;">
     <P CLASS="perdi">GAME OVER</P>
     <p>Tente novamente</p>
   </section>
+
+  <!-- Tela Ganhou -->
   <section class=ganhou style="display: none;">
     <p CLASS="p">Parabéns</p>
     <p>Jogue novamente</p>
   </section>
+
+<!-- Inicio Java Script -->
 <script src="js/jquery-3.4.1.min.js"></script>
 <script>
+
+function gerarContador(elemento){
+  return setInterval(function(){
+    var tempo = $(elemento).text();
+    tempo = parseInt(tempo) -1;
+    $(elemento).text(tempo);
+    if(tempo == 0){
+      clearInterval(contagem);
+      $("section.interfaceJogo").fadeOut();
+      $("section.perdeu").fadeIn();
+    }
+  }, 1000);
+
+}
 
 $("section.inicio button").on("click", function(){
   /*esconder*/
@@ -57,38 +132,101 @@ $("section.inicio button").on("click", function(){
   /*aparecer*/
   $("section.interfaceJogo").fadeIn();
 
-
-  contagem = setInterval(function(){
-    var tempo = $("h1 span.dois").text();
-    tempo = parseInt(tempo) -1;
-    $("h1 span.dois").text(tempo);
-    if(tempo == 0){
-      clearInterval(contagem);
-      $("section.interfaceJogo").fadeOut();
-      $("section.perdeu").fadeIn();
-    }
-  }, 1000);
-  return false;
-
 });
 
 // Array Sons Aleatórios
 var sons = ["audio/accordion.wav", "audio/banjo.wav", "audio/clarinet.wav", "audio/cymbal.wav", "audio/guitar.wav", "audio/maracas.mp3", "audio/piano.wav", "audio/singer.wav", "audio/trumpet.wav"];
 var num1 = Math.floor(Math.random() * 9);
-var audioAtual = new Audio (sons[num1]);
+var num2 = Math.floor(Math.random() * 9);
+var num3 = Math.floor(Math.random() * 9);
+var num4 = Math.floor(Math.random() * 9);
+var num5 = Math.floor(Math.random() * 9);
+var num6 = Math.floor(Math.random() * 9);
+
+// Definição dos audios
+var audio1 = new Audio (sons[num1]);
+var audio2 = new Audio (sons[num2]);
+var audio3 = new Audio (sons[num3]);
+var audio4 = new Audio (sons[num4]);
+var audio5 = new Audio (sons[num5]);
+var audio6 = new Audio (sons[num6]);
 
 // Botão inicar musica
-  $("section.interfaceJogo img").on("click", function(){
-    audioAtual.play();
+  $(".interfaceJogo .comecar").on("click", function(){
+    audio1.play();
+    contagem = gerarContador(".interfaceJogo h1 .dois")
   })
 
-  $("section.interfaceJogo ul .songs").on("click", function(){
+  $(".interfaceJogo ul img").on("click", function(){
    var audioEscolha = $(this).data("som");
-   if(audioEscolha == audioAtual){
-     console.log("Acertou!");
+   if(audioEscolha == sons[num1]){
+     audio1.pause();
+     $("section.interfaceJogo").fadeOut();
+     $("section.interfaceJogo2").fadeIn();
+     clearInterval(contagem);
    }
-});
+   // Fase 2
+   $(".interfaceJogo2 .comecar").on("click", function(){
+     audio2.play();
+     audio3.play();
+     acerto = 0;
+     acerto2 = 0;
 
+   contagem = gerarContador(".interfaceJogo2 h1 .dois")
+   })
+
+   $(".interfaceJogo2 ul img").on("click", function(){
+     var audioEscolha = $(this).data("som");
+     if(audioEscolha == sons[num2]){
+       acerto++;
+       audio2.pause();
+     }
+
+     if(audioEscolha == sons[num3]){
+       acerto2++;
+       audio3.pause();
+     }
+     if((acerto==1) && (acerto2==1)){
+       $(".interfaceJogo2").fadeOut();
+       $(".interfaceJogo3").fadeIn();
+       clearInterval(contagem);
+     }
+   });
+   // Fase 3
+   $(".interfaceJogo3 .comecar").on("click", function(){
+     audio4.play();
+     audio5.play();
+     audio6.play();
+
+     acerto = 0;
+     acerto2 = 0;
+     acerto3 = 0;
+     contagem = gerarContador(".interfaceJogo3 h1 .dois")
+     })
+
+     $(".interfaceJogo3 ul img").on("click", function(){
+       var audioEscolha = $(this).data("som");
+       if(audioEscolha == sons[num3]){
+         acerto++;
+         audio4.pause();
+       }
+
+       if(audioEscolha == sons[num5]){
+         acerto2++;
+         audio5.pause();
+       }
+
+       if(audioEscolha == sons[num6]){
+         acerto3++;
+         audio6.pause();
+       }
+       if((acerto==1) && (acerto2==1) && (acerto3==1)){
+         $(".interfaceJogo3").fadeOut();
+         $(".ganhou").fadeIn();
+         clearInterval(contagem);
+       }
+     });
+});
 
 </script>
 </body>

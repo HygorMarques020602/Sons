@@ -77,6 +77,108 @@ body{
 	font-size: 2em;
 }
 
+/* Começo Tela Jogo */
+.interfaceJogo2 img{
+	width: 20vw;
+	height: 20vw;
+}
+
+.interfaceJogo2 ul{
+	display: flex;
+	flex-wrap: wrap;
+	text-align:center;
+	justify-content: center;
+}
+
+.interfaceJogo2 li{
+	width: 30vw;
+	box-sizing: border-box;
+	border-radius: 100px;
+	height: 15vh;
+	vertical-align: center;
+	color: black;
+	font-size: 2em;
+	margin-bottom: 2.5vh;
+}
+
+.interfaceJogo2 .songs{
+	background: #435058;
+}
+
+.interfaceJogo2 h1 .dois {
+	height: 25vh;
+	vertical-align: center;
+	font-size: 4em;
+	color: #313034;
+	line-height: 15vh;
+}
+
+.interfaceJogo2 h1 .um{
+	height: 25vh;
+	vertical-align: center;
+	font-size: 4em;
+	color: #313034;
+	line-height: 15vh;
+}
+
+.interfaceJogo2 h2{
+	margin: 2vh 0;
+	vertical-align: center;
+	color: #ff6347;
+	font-size: 2em;
+}
+
+/* Começo Tela Jogo */
+.interfaceJogo3 img{
+	width: 20vw;
+	height: 20vw;
+}
+
+.interfaceJogo3 ul{
+	display: flex;
+	flex-wrap: wrap;
+	text-align:center;
+	justify-content: center;
+}
+
+.interfaceJogo3 li{
+	width: 30vw;
+	box-sizing: border-box;
+	border-radius: 100px;
+	height: 15vh;
+	vertical-align: center;
+	color: black;
+	font-size: 2em;
+	margin-bottom: 2.5vh;
+}
+
+.interfaceJogo3 .songs{
+	background: #435058;
+}
+
+.interfaceJogo3 h1 .dois {
+	height: 25vh;
+	vertical-align: center;
+	font-size: 4em;
+	color: #313034;
+	line-height: 15vh;
+}
+
+.interfaceJogo3 h1 .um{
+	height: 25vh;
+	vertical-align: center;
+	font-size: 4em;
+	color: #313034;
+	line-height: 15vh;
+}
+
+.interfaceJogo3 h2{
+	margin: 2vh 0;
+	vertical-align: center;
+	color: #ff6347;
+	font-size: 2em;
+}
+
 /* Tela Perdeu */
 .perdeu .perdi{
 	text-align: center;
